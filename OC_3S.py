@@ -28,10 +28,10 @@ def OC_3S_v1(test_Rrs, test_lambda):
     
     # Load reference data from HDF5 file containing water type characteristics
     ref_table = h5py.File(r'./Water_classification_system_30c.h5','r')
-    up = np.array(ref_table['upB'],'float32')      # Upper bounds for each water type
-    low = np.array(ref_table['lowB'],'float32')    # Lower bounds for each water type
-    ref = np.array(ref_table['ref_cluster'],'float32')  # Reference cluster spectra
-    waves = np.array(ref_table['waves'],'float32')      # Reference wavelengths
+    up = np.array(ref_table['upB'],'float32')/100000      # Upper bounds for each water type
+    low = np.array(ref_table['lowB'],'float32')/100000     # Lower bounds for each water type
+    ref = np.array(ref_table['ref_cluster'],'float32')/100000   # Reference cluster spectra
+    waves = np.array(ref_table['waves'],'float32')       # Reference wavelengths
     
     # Validate and adjust input wavelength range (380-750nm)
     min_lam = min(test_lambda)
